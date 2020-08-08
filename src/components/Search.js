@@ -1,17 +1,22 @@
 import React from 'react'
-import { InputGroup, FormControl } from 'bootstrap'
+import { InputGroup, FormControl } from 'react-bootstrap'
+import { SearchWrapper } from './styled-component.styled.js';
+import { FiSearch } from 'react-icons/fi';
+import './style.css';
 
 //search input component
 export default function Search() {
 	return (
-		<div>
-			<InputGroup className="mb-3">
+		<SearchWrapper>
+			<InputGroup className="search-input">
 				<FormControl
-					placeholder="Search Repositories"
+					placeholder="Search Repositor"
 				/>
 				<InputGroup.Append>
-					<InputGroup.Text></InputGroup.Text>
+					<InputGroup.Text>
+						<FiSearch />
+					</InputGroup.Text>
 				</InputGroup.Append>
 			</InputGroup>
-		</div>)
-}
+		</SearchWrapper>)
+}	
