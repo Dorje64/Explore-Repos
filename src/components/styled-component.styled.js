@@ -12,6 +12,17 @@ export const ResultsWrapper = styled.div`
   padding: 50px 100px 50px 100px;
 `
 
+export const MenuWrapper = styled.div`
+  width: 100%;
+  padding: 50px 100px 50px 100px;
+  display: flex;
+  justify-content: space-between;
+`
+
+export const MenuItem = styled.div`
+  min-width: 150px;
+`
+
 export const RepoCard = styled.div`
   width: 100%;
   padding: 10px;
@@ -29,9 +40,7 @@ export const RepoName = styled.h4`
 `
 
 export const StatWrapper = styled.div`
-  height: 10x;
   bottom: 5px;
   right: 5px;
   position: absolute;
-
 `
