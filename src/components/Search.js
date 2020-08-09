@@ -6,7 +6,7 @@ import './style.css';
 
 //search input component
 export default function Search(props) {
-	const [ keyword, setKeyword ] = useState('')
+	const [keyword, setKeyword] = useState('')
 
 	const handleChange = event => {
 		setKeyword(event.target.value)
@@ -30,12 +30,12 @@ export default function Search(props) {
 			<InputGroup className="search-input">
 				<FormControl
 					placeholder="Search Repositories"
-					onChange={ handleChange }
-					onKeyDown={ onEnter }
+					onChange={handleChange}
+					onKeyDown={onEnter}
 				/>
 				<InputGroup.Append>
 					<InputGroup.Text>
-						<FiSearch  onClick={clickSearch} style={{cursor: 'pointer'}}/>
+						<FiSearch onClick={clickSearch} style={{ cursor: 'pointer' }} />
 					</InputGroup.Text>
 				</InputGroup.Append>
 			</InputGroup>
