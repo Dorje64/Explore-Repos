@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Search, SearchResults } from './components';
+import React, { useState } from 'react';
+import { Search, SearchResults, Menu } from './components';
 import { searchRepo } from './api.js';
 
 //Main page
@@ -21,6 +21,7 @@ function Main() {
   return (
     <div>
       <Search onSearch={onSearch}/>
+      <Menu />
       <SearchResults repos={results} totalCount={totalCount}/>
     </div>
   );
