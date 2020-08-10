@@ -1,12 +1,11 @@
 import React from 'react';
 import { InputGroup, Pagination, Navbar } from 'react-bootstrap';
-import { MenuWrapper, MenuItem } from './styled-component.styled';
+import { MenuWrapper, MenuItem, SortOrder } from './styled-component.styled';
 
 export default function Menu(props) {
   return (
-    <Navbar bg="light" className="mt-5 ml-5 mr-5" >
-      <MenuWrapper>
-        <div style={{ display: "flex" }}>
+      <MenuWrapper bg="light">
+        <SortOrder>
           <MenuItem>
             <InputGroup size="sm">
               <InputGroup.Prepend>
@@ -14,9 +13,9 @@ export default function Menu(props) {
                   Sort By
               </InputGroup.Text>
               </InputGroup.Prepend>
-              <select className="form-control">
-                <option>stars</option>
-                <option>forks</option>
+              <select className="form-control" onChange={props.changeSort}>
+                <option value={'stars'}>Stars</option>
+                <option value={'forks'}>Forks</option>
               </select>
             </InputGroup>
           </MenuItem>
@@ -27,15 +26,15 @@ export default function Menu(props) {
                   Order
               </InputGroup.Text>
               </InputGroup.Prepend>
-              <select className="form-control">
-                <option>Desc</option>
-                <option>Asc</option>
+              <select className="form-control" onChange={props.changeOrder}>
+                <option value={'desc'}>Desc</option>
+                <option value={'asc'}>Asc</option>
               </select>
             </InputGroup>
           </MenuItem>
-        </div>
-        <div>
-          Total Number of Result:
+        </SortOrder>
+        <div className="text-muted">
+          Total Results: {props.totalCount}
       </div>
         <div className="mt-3">
           <Pagination>
@@ -45,6 +44,5 @@ export default function Menu(props) {
           </Pagination>
         </div>
       </MenuWrapper>
-    </Navbar>
   )
 }

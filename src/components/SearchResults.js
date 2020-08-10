@@ -13,7 +13,7 @@ export default function SearchResults(props){
 			<Row>
 				{ props.repos.map( repo => {
 					return(
-						<Col md={4} key={repo.id}>
+						<Col md={4} key={repo.id} sm={12}>
 							<RepoCard className="card">
 								<RepoName>{repo.name}</RepoName>
 								<ShortDescriptions>{shortDescriptions(repo.description)}</ShortDescriptions>
