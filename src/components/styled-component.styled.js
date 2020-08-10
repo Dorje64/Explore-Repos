@@ -14,9 +14,10 @@ export const ResultsWrapper = styled.div`
 
 export const MenuWrapper = styled.div`
   width: 100%;
-  padding: 50px 100px 50px 100px;
+  padding: 5px 100px 5px 100px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `
 
 export const MenuItem = styled.div`
@@ -42,5 +43,10 @@ export const RepoName = styled.h4`
 export const StatWrapper = styled.div`
   bottom: 5px;
   right: 5px;
+  position: absolute;
+`
+export const OwnerAndDate = styled.div`
+  bottom: 5px;
+  left: 5px;
   position: absolute;
 `
