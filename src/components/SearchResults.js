@@ -1,18 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, InputGroup } from 'react-bootstrap';
-import { ResultsWrapper, RepoCard, RepoName, ShortDescriptions, StatWrapper } from './styled-component.styled';
+import { ResultsWrapper, RepoCard, RepoName, ShortDescriptions, StatWrapper, OwnerAndDate } from './styled-component.styled';
 import { GoRepoForked } from 'react-icons/go';
 import { AiFillEye, AiFillStar } from 'react-icons/ai';
+import { getRepo } from '../api';
+import { shortDescriptions, FormatTime } from '../utils';
 
 export default function SearchResults(props){
-
-  //Substring of the full descriptions
-	const shortDescriptions = (descriptions) => {
-		if(descriptions === null)
-		 return descriptions;
-
-		return descriptions.substring(0, 100)
-	}
 
   return(
 		<ResultsWrapper>
@@ -22,8 +16,12 @@ export default function SearchResults(props){
 						<Col md={4} >
 							<RepoCard className="card">
 								<RepoName>{repo.name}</RepoName>
-								<ShortDescriptions>{shortDescriptions(repo.description)}</ShortDescriptions>        
-								<Stats stars={repo.stargazers_count} forks={repo.forks} watchers={repo.subscribers_url}/>
+								<ShortDescriptions>{shortDescriptions(repo.description)}</ShortDescriptions>
+                <OwnerAndDate>
+                  <div> Author: {repo.owner.login} </div>
+                  <div> UpdatedAt: {FormatTime(repo.updated_at)} </div>
+                </OwnerAndDate>
+								<Stats stars={repo.stargazers_count} forks={repo.forks}  url={repo.url} />
 							</RepoCard>
 						</Col>
 					)
@@ -34,20 +32,24 @@ export default function SearchResults(props){
 }
 
 function Stats(props){
-  // const [ subscribersCount, setSubscribersCount ] = useState(0)
+  const [ subscribersCount, setSubscribersCount ] = useState(0)
 
-  // useEffect( async () => {
-  //   const count = await axios(`${props.watchers}`)
-  //   setSubscribersCount(count.data.length())
-  // })
-
+  useEffect(() => {
+    async function fetchData(){
+      const repoDetails = await getRepo(props.url)
+      setSubscribersCount(repoDetails.data.subscribers_count)
+    }
+    fetchData()
+  }, [props.url])
 
   return(
     <StatWrapper>
       <InputGroup size="sm">
+        <InputGroup.Prepend>
         <InputGroup.Text>  
-          <AiFillEye></AiFillEye> 
+          <AiFillEye></AiFillEye> {subscribersCount}
         </InputGroup.Text>
+        </InputGroup.Prepend>
         <InputGroup.Append>
           <InputGroup.Text>
             <GoRepoForked></GoRepoForked> {props.forks}
