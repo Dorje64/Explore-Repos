@@ -49,4 +49,5 @@ export const OwnerAndDate = styled.div`
   bottom: 5px;
   left: 5px;
   position: absolute;
+  color: grey;
 `
