@@ -21,7 +21,7 @@ function Main() {
   return (
     <div>
       <Search onSearch={onSearch}/>
-      <Menu />
+      {results.length > 0 && <Menu /> }
       <SearchResults repos={results} totalCount={totalCount}/>
     </div>
   );
