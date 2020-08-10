@@ -13,13 +13,13 @@ export default function SearchResults(props){
 			<Row>
 				{ props.repos.map( repo => {
 					return(
-						<Col md={4} >
+						<Col md={4} key={repo.id}>
 							<RepoCard className="card">
 								<RepoName>{repo.name}</RepoName>
 								<ShortDescriptions>{shortDescriptions(repo.description)}</ShortDescriptions>
                 <OwnerAndDate>
                   <div> Author: {repo.owner.login} </div>
-                  <div> UpdatedAt: {FormatTime(repo.updated_at)} </div>
+                  <div> Updated at: {FormatTime(repo.updated_at)} </div>
                 </OwnerAndDate>
 								<Stats stars={repo.stargazers_count} forks={repo.forks}  url={repo.url} />
 							</RepoCard>
