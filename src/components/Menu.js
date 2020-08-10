@@ -8,7 +8,7 @@ export default function Menu(props) {
       <MenuWrapper>
         <div style={{ display: "flex" }}>
           <MenuItem>
-            <InputGroup>
+            <InputGroup size="sm">
               <InputGroup.Prepend>
                 <InputGroup.Text>
                   Sort By
@@ -21,7 +21,7 @@ export default function Menu(props) {
             </InputGroup>
           </MenuItem>
           <MenuItem>
-            <InputGroup className="ml-2">
+            <InputGroup size="sm" className="ml-2">
               <InputGroup.Prepend>
                 <InputGroup.Text>
                   Order
@@ -39,9 +39,9 @@ export default function Menu(props) {
       </div>
         <div className="mt-3">
           <Pagination>
-            <Pagination.Item> Prev </Pagination.Item>
-            <Pagination.Item>1</Pagination.Item>
-            <Pagination.Item> Next </Pagination.Item>
+            <Pagination.Item onClick={props.prevPage}> Prev </Pagination.Item>
+              <Pagination.Item>{props.page}</Pagination.Item>
+            <Pagination.Item onClick={props.nextPage}> Next </Pagination.Item>
           </Pagination>
         </div>
       </MenuWrapper>
