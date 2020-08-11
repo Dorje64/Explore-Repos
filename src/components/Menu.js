@@ -16,6 +16,8 @@ export default function Menu(props) {
               <select className="form-control" onChange={props.changeSort}>
                 <option value={'stars'}>Stars</option>
                 <option value={'forks'}>Forks</option>
+                <option value={'help-wanted-issues'}> HWI </option>
+                <option value={'updated'}>Updated</option>
               </select>
             </InputGroup>
           </MenuItem>
