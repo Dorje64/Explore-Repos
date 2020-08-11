@@ -5,7 +5,15 @@ export const SearchWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 200px 500px 0 500px;
+  
+  padding: 200px 200px 0 200px;
+  @media ${device.xl} {
+   padding: 200px 500px 0 500px;
+  }
+
+  @media ${device.m}{
+    padding: 200px 50px 0 50px;
+  }
 
   @media ${device.s} {
     padding: 10px 5px 0 5px;
@@ -15,6 +23,10 @@ export const SearchWrapper = styled.div`
 export const ResultsWrapper = styled.div`
   width: 100%;
   padding: 50px 100px 50px 100px;
+
+  @media ${device.m}{
+    padding: 50px 50px 0 50px;
+  }
 
   @media ${device.s} {
     overflow-x: hidden;
@@ -30,6 +42,13 @@ export const MenuWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 
+  @media ${device.m}{
+    margin-top: 10px;
+    overflow-x: hidden; 
+    padding: 10px 5px 10px 5px;
+    flex-direction: column;
+  }
+
   @media ${device.s} {
     margin-top: 10px;
     overflow-x: hidden; 
@@ -40,6 +59,10 @@ export const MenuWrapper = styled.div`
 
 export const SortOrder = styled.div`
   display: flex;
+
+  @media ${device.m}{
+    margin-bottom: 20px;
+  }
   @media ${device.s} {
     margin-bottom: 10px;
   }
