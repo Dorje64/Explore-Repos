@@ -17,19 +17,22 @@ export const ResultsWrapper = styled.div`
   padding: 50px 100px 50px 100px;
 
   @media ${device.s} {
+    overflow-x: hidden;
     padding: 10px 5px 0 5px;
   }
 
 `
 
 export const MenuWrapper = styled.div`
-  width: 100%;
+  max-width: 100%;
   padding: 5px 100px 5px 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   @media ${device.s} {
     margin-top: 10px;
+    overflow-x: hidden; 
     padding: 10px 5px 10px 5px;
     flex-direction: column;
   }
