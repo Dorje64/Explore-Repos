@@ -15,13 +15,14 @@ export default function SearchResults(props){
 					return(
 						<Col md={4} key={repo.id} sm={12}>
 							<RepoCard className="card">
-								<RepoName>{repo.name}</RepoName>
+								<RepoName><a href={repo.html_url}>{repo.name}</a></RepoName>
 								<ShortDescriptions>{shortDescriptions(repo.description)}</ShortDescriptions>
                 <OwnerAndDate>
-                  <div> Author: {repo.owner.login} </div>
-                  <div> Updated at: {FormatTime(repo.updated_at)} </div>
+                  <div> Author: <a href={repo.owner.html_url}>{repo.owner.login}</a></div>
+                  <div> Default Branch: {repo.default_branch} </div>
                 </OwnerAndDate>
-								<Stats stars={repo.stargazers_count} forks={repo.forks}  url={repo.url} />
+
+								<Stats stars={repo.stargazers_count} forks={repo.forks}  url={repo.url} updatedAt={repo.updated_at}/>
 							</RepoCard>
 						</Col>
 					)
@@ -44,6 +45,7 @@ function Stats(props){
 
   return(
     <StatWrapper>
+      <div className="text-muted"> Updated at: {FormatTime(props.updatedAt)} </div>
       <InputGroup size="sm">
         <InputGroup.Prepend>
         <InputGroup.Text>  
