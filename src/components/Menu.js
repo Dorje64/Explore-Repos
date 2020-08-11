@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputGroup, Pagination, Navbar } from 'react-bootstrap';
+import { InputGroup, Pagination } from 'react-bootstrap';
 import { MenuWrapper, MenuItem, SortOrder } from './styled-component.styled';
 
 export default function Menu(props) {

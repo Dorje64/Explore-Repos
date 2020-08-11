@@ -13,7 +13,7 @@ export default function SearchResults(props){
 			<Row>
 				{ props.repos.map( repo => {
 					return(
-						<Col md={4} key={repo.id} sm={12}>
+						<Col lg={6} md={12} key={repo.id}>
 							<RepoCard className="card">
 								<RepoName><a href={repo.html_url}>{repo.name}</a></RepoName>
 								<ShortDescriptions>{shortDescriptions(repo.description)}</ShortDescriptions>
@@ -21,7 +21,6 @@ export default function SearchResults(props){
                   <div> Author: <a href={repo.owner.html_url}>{repo.owner.login}</a></div>
                   <div> Default Branch: {repo.default_branch} </div>
                 </OwnerAndDate>
-
 								<Stats stars={repo.stargazers_count} forks={repo.forks}  url={repo.url} updatedAt={repo.updated_at}/>
 							</RepoCard>
 						</Col>
