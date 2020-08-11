@@ -24,7 +24,7 @@ function Main() {
       setResults(res.data.items)
       setLoading(false)
 
-      if(res.data.items.length == 0 )
+      if(res.data.items.length === 0 )
         setNoData(true)
     })
     .catch( err =>{
@@ -44,7 +44,7 @@ function Main() {
         setResults(res.data.items)
         setTotalCount(res.data.total_count)
 
-        if(res.data.items.length == 0 )
+        if(res.data.items.length === 0 )
          setNoData(true)
       })
       .catch( err => {
